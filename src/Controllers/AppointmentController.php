@@ -14,6 +14,10 @@ class AppointmentController {
             "data" => $data
         ], 200);
     }
+    public function view() {
+    $appointments = require __DIR__ . '/../Data/appointments.php';
+    require __DIR__ . '/../../views/appointments.php';
+    }
 
     public function register() {
 

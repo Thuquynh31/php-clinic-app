@@ -17,20 +17,28 @@ if ($uri == "/") {
     exit;
 }
 
-// GET
+// 👉 NEW: VIEW UI APPOINTMENTS
+if ($uri == "/appointments-view") {
+    (new AppointmentController())->view();
+    exit;
+}
+
+// GET API
 if ($uri == "/appointments") {
     if ($method != "GET") {
         Response::json(["error" => "Method Not Allowed"], 405);
     }
     (new AppointmentController())->index();
+    exit;
 }
 
-// POST
+// POST API
 if ($uri == "/registrations") {
     if ($method != "POST") {
         Response::json(["error" => "Method Not Allowed"], 405);
     }
     (new AppointmentController())->register();
+    exit;
 }
 
 // 404
